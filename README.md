@@ -55,3 +55,6 @@ For VPC CNI, CoreDNS and kube-proxy, choose the default versions, For CNI, lates
 different. But go with default.
 
 Click 'Create'. This process will take 10-12 minutes. Wait till your cluster shows up as Active.
+
+- Step 3: Add Node Groups to our cluster
+![alt text](image-4.png) 
