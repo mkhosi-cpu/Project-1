@@ -118,9 +118,11 @@ kubectl describe svc 2048-svc
 #Access the LoadBalancer Ingress on the kops instance
 curl <LoadBalancer_Ingress>:<Port_number>
 or
-curl a06aa56b81f5741268daca84dca6b4f8-694631959.us-east-1.elb.amazonaws.com:80
+curl a872b47d8d22a4f3f84288455c694eee-827660829.us-east-1.elb.amazonaws.com:80
 (try this from your laptop, not from your cloudshell)
 
 #Go to EC2 console. get the DNS name of ELB and paste the DNS into address bar of the browser
 #It will show the 2048 game. You can play. (need to wait for 2-3 minutes for the 
 #setup to be complete)
+
+![alt text](image-5.png)
