@@ -44,6 +44,7 @@ We are going to provision the infrastracture manually and automate the infrastru
 Create another IAM role 'eks-node-grp-role' with 3 policies attached: 
 
 (Allows EC2 instances to call AWS services on your behalf.)
+
     - AmazonEKSWorkerNodePolicy
 
     - AmazonEC2ContainerRegistryReadOnly
