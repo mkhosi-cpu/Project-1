@@ -58,3 +58,69 @@ Click 'Create'. This process will take 10-12 minutes. Wait till your cluster sho
 
 - Step 3: Add Node Groups to our cluster
 ![alt text](image-4.png) 
+
+Now, lets add the worker nodes where the pods can run
+
+Open the cluster > Compute > Add NodeGrp
+Name: <yourname>-eks-nodegrp-1 
+Select the role you already created
+Leave default values for everything else
+
+AMI - choose the default 1 (Amazon Linux 2)
+change desired/minimum/maximum to 1 (from 2)
+Enable SSH access. Choose a security group which allwos 22, 80, 8080
+
+Choose default values for other fields 
+
+Node group creation may take 2-3 minutes
+
+- Step 4: Authenticate to this cluster
+
+Reference:
+https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html
+
+Open cloudshell
+
+Type on your AWS CLI window 
+aws sts get-caller-identity
+observe your account and user id details
+
+Create a  kubeconfig file where it stores the credentials for EKS:
+kubeconfig configuration allows you to connect to your cluster using the kubectl command line.
+aws eks update-kubeconfig --region region-code --name my-cluster
+ex: aws eks update-kubeconfig --region us-east-1 --name Project-1 
+
+
+
+see if you can get the nodes you created
+kubectl get nodes
+
+Install nano editor in cloudshell. We will need this in the next task
+sudo yum install nano -y
+
+- Step 5: Create a new POD in EKS for the 2048 game
+
+3apply the config file to create the pod
+kubectl apply -f 2048-pod.yaml
+#pod/2048-pod created
+
+#view the newly created pod
+kubectl get pods
+
+- Step 6: Setup Load Balancer Service
+
+#apply the config file
+kubectl apply -f 2048-svc.yaml
+
+#view details of the modified service
+kubectl describe svc 2048-svc
+
+#Access the LoadBalancer Ingress on the kops instance
+curl <LoadBalancer_Ingress>:<Port_number>
+or
+curl a06aa56b81f5741268daca84dca6b4f8-694631959.us-east-1.elb.amazonaws.com:80
+(try this from your laptop, not from your cloudshell)
+
+#Go to EC2 console. get the DNS name of ELB and paste the DNS into address bar of the browser
+#It will show the 2048 game. You can play. (need to wait for 2-3 minutes for the 
+#setup to be complete)
