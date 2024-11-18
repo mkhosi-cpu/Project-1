@@ -42,19 +42,25 @@ We are going to provision the infrastracture manually and automate the infrastru
 ![alt text](image-3.png)
 
 Create another IAM role 'eks-node-grp-role' with 3 policies attached: 
+
 (Allows EC2 instances to call AWS services on your behalf.)
     - AmazonEKSWorkerNodePolicy
+
     - AmazonEC2ContainerRegistryReadOnly
+    
     - AmazonEKS_CNI_Policy
 
 Choose default VPC, Choose 2 or 3 subnets
+
 Choose a security group which open the ports 22, 80, 8080
+
 cluster endpoint access: public
 
 For VPC CNI, CoreDNS and kube-proxy, choose the default versions, For CNI, latest and default are 
 different. But go with default.
 
 Click 'Create'. This process will take 10-12 minutes. Wait till your cluster shows up as Active.
+![alt text](image-7.png)
 
 - Step 3: Add Node Groups to our cluster
 ![alt text](image-4.png) 
