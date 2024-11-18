@@ -31,4 +31,7 @@ I explored Kubernetes's scaling capabilities, adjusting the number of applicatio
 To make the 2048 game accessible to users, I created a Kubernetes service to expose it securely over the internet. Additionally, I could have implemented an Ingress controller for more advanced routing
 
 - Step 1: Create an EKS cluster
+
+We are going to provision the infrastracture manually and automate the infrastructure creation using Terraform.
+
 - Step 2: Create an IAM role eks-cluster-role with 1 policy attached: AmazonEKSClusterPolicy
