@@ -39,9 +39,7 @@ To make the 2048 game accessible to users, I created a Kubernetes service to exp
 We are going to provision the infrastracture manually and automate the infrastructure creation using Terraform.
 
 - Step 2: Create an IAM role eks-cluster-role with 1 policy attached: AmazonEKSClusterPolicy
-![
-    
-](image-2.png)
+![alt text](image-3.png)
 
 Create another IAM role 'eks-node-grp-role' with 3 policies attached: 
 (Allows EC2 instances to call AWS services on your behalf.)
