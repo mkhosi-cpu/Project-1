@@ -133,3 +133,6 @@ curl a872b47d8d22a4f3f84288455c694eee-827660829.us-east-1.elb.amazonaws.com:80
 
 ![alt text](image-5.png)
 ![alt text](image-6.png)
+
+All the above steps to were done manually to provision the EKS cluster 
+Now we need to automate the entire infrastructure using Terraform and deploy the 2048 game
